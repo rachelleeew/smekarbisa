@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMK Negeri 1 Dukuhturi - maju bersama, sukses bersama</title>
+  
+ <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f4f8;
+      color: #001f3f;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 31, 63, 0.6);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 40px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+    }
+
+    nav .logo-small {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    nav .logo-small img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+
+    nav .logo-small span {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.2em;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0,191,255,0.5);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #00bfff;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: #00bfff;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,31,63,0.95);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 20px;
+        border-radius: 10px;
+        gap: 15px;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      position: relative;
+      overflow: hidden;
+      height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      margin-top: 0;
+      padding-top: 100px;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 110%;
+      height: 110%;
+      background-image: url('bg-header.jpg');
+      background-size: cover;
+      background-position: center;
+      animation: bgMove 20s ease-in-out infinite alternate;
+      z-index: 0;
+      filter: brightness(0.9);
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 31, 63, 0.8) 0%, rgba(0, 191, 255, 0.5) 100%);
+      z-index: 1;
+    }
+
+    @keyframes bgMove {
+      0% { transform: scale(1) translateY(0px); }
+      50% { transform: scale(1.08) translateY(-20px); }
+      100% { transform: scale(1.05) translateY(20px); }
+    }
+
+    .header-container {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .logo {
+      width: 220px;
+      height: auto;
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+      margin-bottom: 30px;
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 40px rgba(0, 191, 255, 0.8);
+    }
+
+    .school-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.8em;
+      font-weight: 700;
+      background: linear-gradient(90deg, #00bfff, #ff69b4, #ffffff);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textFlow 5s linear infinite;
+      text-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .school-slogan {
+      font-size: 1.8em;
+      color: #fff;
+      text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .school-info {
+      font-size: 1.1em;
+      color: #e0f7ff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .school-info i {
+      color: #00bfff;
+    }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes textFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+    /* ===== KONTEN MENU ===== */
+    section {
+      display: none;
+      padding: 60px 80px;
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    section h2 {
+      color: #001f3f;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      color: #333;
+      line-height: 1.7;
+      font-size: 1.05em;
+    }
+
+    /* === KONTAK CONTAINER === */
+    .kontak-container {
+  background: #ffffff;
+  border: 2px solid #00bfff;
+  border-radius: 18px;
+  padding: 50px 60px;
+  box-shadow: 0 8px 20px rgba(0, 191, 255, 0.15);
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kontak-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 191, 255, 0.25);
+}
+
+.kontak-container h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #002a54;
+  font-size: 2em;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px rgba(0,191,255,0.3);
+}
+
+.kontak-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  margin-top: 10px;
+  font-size: 1.05em;
+  color: #003366;
+  line-height: 1.6;
+}
+
+.kontak-info i {
+  color: #00bfff;
+  font-size: 1.3em;
+  margin-right: 10px;
+  width: 25px;
+  text-align: center;
+}
+
+.kontak-item {
+  display: flex;
+  align-items: center;
+  background: #f9fbff;
+  border: 1px solid #00bfff;
+  border-radius: 12px;
+  padding: 12px 15px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0,191,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.kontak-item:hover {
+  background: #e8f8ff;
+  transform: translateX(5px);
+  box-shadow: 0 8px 20px rgba(0,191,255,0.2);
+}
+
+.kontak-map {
+  margin-top: 35px;
+  border: 2px solid #00bfff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,191,255,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kontak-map:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,191,255,0.3);
+}
+
+.kontak-map iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 15px;
+}
+
+/* === ANIMASI FADE-IN UNTUK KONTAK === */
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kontak-item {
+  opacity: 0;
+  animation: fadeInSoft 0.8s ease forwards;
+}
+
+.kontak-item:nth-child(1) { animation-delay: 0.2s; }
+.kontak-item:nth-child(2) { animation-delay: 0.4s; }
+.kontak-item:nth-child(3) { animation-delay: 0.6s; }
+.kontak-item:nth-child(4) { animation-delay: 0.8s; }
+
+.kontak-map {
+  opacity: 0;
+  animation: fadeInSoft 0.8s ease forwards;
+  animation-delay: 1s;
+}
+
+    /* === TAMPILAN BERANDA & PROFIL === */
+    #beranda .beranda-container,
+    #profil .profil-container {
+      background: #ffffff;
+      border: 2px solid #00bfff;
+      border-radius: 18px;
+      padding: 40px 50px;
+      box-shadow: 0 8px 20px rgba(0, 191, 255, 0.15);
+      max-width: 1000px;
+      margin: 0 auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #beranda .beranda-container:hover,
+    #profil .profil-container:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0, 191, 255, 0.25);
+    }
+
+    /* Bingkai gambar beranda agar seragam dengan profil */
+    /* === GRID JURUSAN === */
+    .jurusan-container {
+      background: #fff;
+      border: 2px solid #00bfff;
+      border-radius: 18px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-shadow: 0 8px 20px rgba(0, 191, 255, 0.15);
+    }
+
+    .jurusan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .jurusan-card {
+      background: #f9fbff;
+      border: 1px solid #00bfff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 191, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .jurusan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 191, 255, 0.3);
+    }
+
+    .jurusan-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid #00bfff;
+    }
+
+    .jurusan-card h3 {
+      color: #002a54;
+      margin-top: 15px;
+    }
+
+    .jurusan-card p {
+      padding: 0 15px;
+      font-size: 0.95em;
+    }
+
+    .jurusan-footer {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 25px;
+      color: #004080;
+    }
+
+    #beranda img {
+      display: block;
+      margin: 25px auto;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 14px;
+      border: 2px solid #ccc;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    #profil img {
+      display: block;
+      margin: 25px auto;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 14px;
+      border: 2px solid #ccc;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Khusus profil: batasi tinggi dan aktifkan scroll agar daftar panjang bisa digulir */
+    #profil .profil-container {
+      max-height: 620px; /* atur sesuai kebutuhan; menampilkan scroll jika konten lebih panjang */
+      overflow: auto;
+      padding-right: 18px; /* beri ruang untuk scrollbar */
+    }
+
+    #profil h3 {
+      color: #004080;
+      font-family: 'Orbitron', sans-serif;
+      margin-top: 25px;
+    }
+
+    #profil ul {
+      line-height: 1.8;
+      color: #333;
+      padding-left: 25px;
+    }
+
+    #profil .highlight {
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #004080;
+      margin-top: 25px;
+    }
+
+    /* Styling kecil untuk subjudul guru agar terlihat rapi */
+    .guru-subjudul {
+      font-weight: 700;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      color: #002a54;
+    }
+
+    .guru-list {
+      columns: 1;
+      -webkit-columns: 1;
+      -moz-columns: 1;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .guru-list {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+      }
+    }
+
+   /* === GALERI GRID === */
+   .galeri-container:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0, 191, 255, 0.25);
+    }
+
+    .galeri-container {
+      background: #ffffff;
+      border: 2px solid #00bfff;
+      border-radius: 18px;
+      padding: 40px 50px;
+      box-shadow: 0 8px 20px rgba(0, 191, 255, 0.15);
+      max-width: 1000px;
+      margin: 0 auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .galeri-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .galeri-card {
+      background: #f9fbff;
+      border: 1px solid #00bfff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 191, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .galeri-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 191, 255, 0.3);
+    }
+
+    .galeri-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid #00bfff;
+    }
+
+    .galeri-card h3 {
+      color: #002a54;
+      margin-top: 15px;
+    }
+
+    .galeri-card p {
+      padding: 0 15px;
+      font-size: 0.95em;
+    }
+
+    .guru-list li {
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo-small">
+      <img src="logo-smk.png" alt="Logo SMK">
+      <span>SMKN 1 DUKUHTURI</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <div></div><div></div><div></div>
+    </div>
+    <ul id="menu">
+      <li><a data-section="beranda">Beranda</a></li>
+      <li><a data-section="profil">Profil</a></li>
+      <li><a data-section="jurusan">Jurusan</a></li>
+      <li><a data-section="galeri">Galeri</a></li>
+      <li><a data-section="kontak">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <img src="logo-smk.png" alt="Logo SMK Negeri 1 Dukuhturi" class="logo">
+      <h1 class="school-name">SMK NEGERI 1 DUKUHTURI</h1>
+      <p class="school-slogan">Maju Bersama, Sukses Bersama</p>
+      <div class="school-info">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Jl. Raya Karang Anyar No.17, Pekauman Kulon, Dukuhturi, Tegal, Jawa Tengah</span>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- BERANDA -->
+    <section id="beranda" class="active">
+      <div class="beranda-container">
+        <h2>Selamat Datang di SMK Negeri 1 Dukuhturi</h2>
+        <p>SMK Negeri 1 Dukuhturi merupakan sekolah kejuruan unggulan di Kabupaten Tegal yang berkomitmen mencetak generasi siap kerja, berkarakter, dan berprestasi.</p>
+
+        <h3>🏫 Tentang Kami</h3>
+        <p>SMK Negeri 1 Dukuhturi berdiri sebagai lembaga pendidikan vokasi yang berorientasi pada dunia kerja dan industri. Kami terus berinovasi untuk menciptakan suasana belajar yang inspiratif, kolaboratif, dan berbasis teknologi.</p>
+
+        <h3>🎯 Visi Kami</h3>
+        <p>“Mewujudkan sekolah unggul dengan mencetak lulusan berkarakter Pancasila dalam menyongsong Indonesia Emas melalui pendidikan vokasi yang berbasis kompetensi dan teknologi.”</p>
+
+        <h3>💡 Misi Kami</h3>
+        <ul>
+          <li>Membentuk kepribadian siswa yang beriman dan bertakwa, berakhlak mulia, berintegritas, menghargai keberagaman serta berjiwa wirausaha.</li>
+          <li>Mengembangkan kurikulum berbasis kompetensi dan teknologi sesuai dengan kebutuhan dunia kerja masa kini dan masa depan.</li>
+          <li>Menciptakan lingkungan kerja kondusif dan kompetitif bagi warga sekolah.</li>
+          <li>Bekerjasama dengan dunia kerja untuk mengembangkan sistem pendidikan dan latihan bagi guru maupun siswa.</li>
+          <li>Menjaga dan melestarikan lingkungan.</li>
+        </ul>
+
+        <h3>🏆 Prestasi & Keunggulan</h3>
+        <p>SMKN 1 Dukuhturi telah meraih berbagai penghargaan baik akademik maupun non-akademik. Dari lomba keterampilan siswa hingga inovasi teknologi, kami bangga menjadi wadah bagi talenta muda berprestasi.</p>
+
+        <img src="beranda.jpeg" alt="Suasana SMKN 1 Dukuhturi">
+
+        <p class="highlight">🌟 Mari bergabung bersama kami dan wujudkan masa depan cerah dengan keterampilan dan semangat belajar tanpa batas!</p>
+      </div>
+    </section>
+
+    <!-- PROFIL -->
+    <section id="profil">
+      <div class="profil-container">
+        <h2>Profil Sekolah & Guru</h2>
+
+        <!-- Profil Sekolah (tetap ada sesuai permintaan) -->
+        <h3 class="guru-subjudul">🏫 Profil Sekolah</h3>
+        <p>SMK Negeri 1 Dukuhturi adalah lembaga pendidikan kejuruan yang memiliki komitmen tinggi dalam mencetak lulusan siap kerja, berkarakter, dan profesional di bidangnya. Dengan fasilitas lengkap dan dukungan tenaga pendidik berkompeten, sekolah ini menjadi salah satu SMK unggulan di Kabupaten Tegal.</p>
+
+        <ul>
+          <li><strong>Nama Sekolah:</strong> SMK Negeri 1 Dukuhturi</li>
+          <li><strong>Alamat:</strong> Jl. Raya Karang Anyar No.17, Pekauman Kulon, Dukuhturi, Tegal, Jawa Tengah</li>
+          <li><strong>Didirikan:</strong> 1997</li>
+          <li><strong>Status:</strong> Negeri</li>
+          <li><strong>Akreditasi:</strong> A (Unggul)</li>
+          <li><strong>Kepala Sekolah:</strong> Drs. H. Supriyono, M.Pd</li>
+        </ul>
+
+        <img src="profil-sekolah.jpg" alt="Profil Sekolah">
+
+        <p class="highlight">🌟 Fasilitas dan tenaga pendidik kami siap mendukung proses pembelajaran yang berkualitas.</p>
+
+        <!-- Profil Guru (daftar panjang yang bisa discroll) -->
+        <h3 class="guru-subjudul">🧰 1. Guru Produktif per Jurusan</h3>
+
+        <h4 style="margin-top:12px;"><strong>💻 TJKT (Teknik Jaringan Komputer dan Telekomunikasi)</strong></h4>
+        <ul class="guru-list">
+          <li>Anna Himmatul Ulya</li>
+          <li>Gagar</li>
+          <li>Imam Asfuri</li>
+          <li>Ni’mah Naafi’atul Ulfah</li>
+          <li>Nur Endah Irwanti</li>
+          <li>Rosidin, S.Kom</li>
+          <li>Sigit Nugroho</li>
+          <li>Woro Karseno</li>
+        </ul>
+        <hr>
+
+        <h4 style="margin-top:12px;"><strong>🧑‍🎨 DKV / MM (Desain Komunikasi Visual / Multimedia)</strong></h4>
+        <ul class="guru-list">
+          <li>Anggoro Ardy Wibowo</li>
+          <li>Darmi Herawati</li>
+          <li>Deviati</li>
+          <li>Feri Anggriawan</li>
+          <li>Muhamad Afandi</li>
+          <li>Musodik Salafudin</li>
+          <li>Nurul Aulia Hakim</li>
+          <li>Sungging Nanda Pratama</li>
+          <li>Ismi Amrina Maf’ulah</li>
+          <li>Sri Mukhayati</li>
+        </ul>
+        <hr>
+
+        <h4 style="margin-top:12px;"><strong>🧾 AKL (Akuntansi dan Keuangan Lembaga)</strong></h4>
+        <ul class="guru-list">
+          <li>Ahmad Mandiriyanto</li>
+          <li>Ahmad Yusup</li>
+          <li>Akhmad Mustadir</li>
+          <li>Durmi</li>
+          <li>Irtifa Nugrahaini</li>
+          <li>Prima Hidayati</li>
+          <li>Tri Wagiyati</li>
+        </ul>
+        <hr>
+
+        <h4 style="margin-top:12px;"><strong>📠 MPLB / OTKP (Manajemen Perkantoran dan Layanan Bisnis)</strong></h4>
+        <ul class="guru-list">
+          <li>Diastuti Dewi Setiawati</li>
+          <li>Hanny Julistiati</li>
+          <li>Nur Khikmatul Mustakim</li>
+          <li>Siti Susanti</li>
+          <li>Taslimah</li>
+          <li>Teguh Santoso</li>
+          <li>Ummu Syarifah</li>
+        </ul>
+        <hr>
+
+        <h4 style="margin-top:12px;"><strong>🛍️ PM / Pemasaran</strong></h4>
+        <ul class="guru-list">
+          <li>Agustina Rahmawati</li>
+          <li>Fitriyah Slamet Rahayu</li>
+          <li>Khasanah</li>
+          <li>Nursyam Bakhtiar</li>
+          <li>Sucipto</li>
+          <li>Yohanna Herniawati</li>
+        </ul>
+        <hr>
+
+        <h4 style="margin-top:12px;"><strong>💻 PPLG (Pengembangan Perangkat Lunak dan Gim)</strong></h4>
+        <ul class="guru-list">
+          <li>Annas Nur Aziz</li>
+        </ul>
+        <hr>
+
+        <h3 class="guru-subjudul">📚 2. Guru Mapel Umum dan Lainnya</h3>
+
+        <h4 style="margin-top:12px;"><strong>🏫 PPKN</strong></h4>
+        <ul class="guru-list">
+          <li>Abdullah</li>
+          <li>Ahmad Faizal Bakhtiar</li>
+          <li>Puji Endah Wahyu Ningsih</li>
+          <li>Suci Erningsih</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>🧮 Matematika</strong></h4>
+        <ul class="guru-list">
+          <li>Arie Setyani</li>
+          <li>Darnoko</li>
+          <li>Dedi Nur Aristiyo</li>
+          <li>Latifah Rahmawati</li>
+          <li>Lilis Sintami Ertifa</li>
+          <li>Sofiana Insani</li>
+          <li>Suhati</li>
+          <li>Yayu Marlina</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>📖 Bahasa Indonesia</strong></h4>
+        <ul class="guru-list">
+          <li>Bedy Efendy</li>
+          <li>Dewi Indrawati</li>
+          <li>Dian Irmalasari</li>
+          <li>Dyan Anggraini</li>
+          <li>Dimas Pramata Sukma</li>
+          <li>Mela Ristanti</li>
+          <li>Vita Purnamasari</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>🌍 Bahasa Inggris</strong></h4>
+        <ul class="guru-list">
+          <li>Astri Nirmala Mulyadi</li>
+          <li>Fairuz Labibah</li>
+          <li>Gunawan Teguh Santoso</li>
+          <li>Mohamad Jamali</li>
+          <li>Ninik Setyaningsih</li>
+          <li>M. Imron Rosyadi</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>🕌 Pendidikan Agama Islam</strong></h4>
+        <ul class="guru-list">
+          <li>Drs. Komarudin</li>
+          <li>Naelul Falachi S.Pd.I</li>
+          <li>Nafisah</li>
+          <li>Siti Zumaroh</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>👩‍🎨 Seni Budaya</strong></h4>
+        <ul class="guru-list">
+          <li>Ika Setyaningrum</li>
+          <li>Sri Mukhayati (juga produktif MM/DKV)</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>💪 PJOK</strong></h4>
+        <ul class="guru-list">
+          <li>Arif Hartawan</li>
+          <li>Resna Dwi Nursanti</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>💬 Bahasa Jawa</strong></h4>
+        <ul class="guru-list">
+          <li>Amelia Qonitah</li>
+          <li>Didit Sutopo</li>
+          <li>Edi Setiyono Jefri Saputra</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>💡 PKK (Proyek Kreatif dan Kewirausahaan)</strong></h4>
+        <ul class="guru-list">
+          <li>Diah Ayu Dewi Wijayanti</li>
+          <li>Efi Yuliati</li>
+          <li>Mega Dihana Mustika</li>
+          <li>Siti Khomisah</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>💭 BK (Bimbingan Konseling)</strong></h4>
+        <ul class="guru-list">
+          <li>Aula Finata Sari</li>
+          <li>Dahlia Anggraeny</li>
+          <li>Gunawan Prasetio</li>
+          <li>Huda Ikhya Ulumudin</li>
+          <li>Islamet Suharto</li>
+          <li>Khuliyah</li>
+          <li>Nahary Noor Shiddieq</li>
+          <li>Nani Listiani</li>
+          <li>Ratri Pratiningrum</li>
+          <li>Sri Maryatun</li>
+          <li>TAESAR Afandi</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>🧠 PIPAS (Proyek Ilmu Pengetahuan dan Sosial)</strong></h4>
+        <ul class="guru-list">
+          <li>Dyah Meinar Ambarwati</li>
+          <li>Endah Nurhidayati</li>
+          <li>Henny Setyorini</li>
+          <li>Tri Esti Yuliyanti</li>
+        </ul>
+
+        <h4 style="margin-top:12px;"><strong>💻 SIMDIG / Informatika / TIK</strong></h4>
+        <ul class="guru-list">
+          <li>Slamet Faijin</li>
+          <li>Waseso Husodo</li>
+          <li>Martin Subekti</li>
+          <li>Ismi Amrina Maf’ulah</li>
+          <li>Rosidin, S.Kom</li>
+          <li>Muhamad Afandi</li>
+          <li>Musodik Salafudin</li>
+        </ul>
+
+        <img src="profil-guru.jpg" alt="Profil Guru">
+
+        <p class="highlight">🌟 Tenaga pendidik kami berperan penting dalam membentuk generasi cerdas, beretika, dan siap menghadapi dunia kerja modern.</p>
+      </div>
+    </section>
+
+    <!-- JURUSAN -->
+    <section id="jurusan">
+      <div class="jurusan-container">
+        <h2>Program Keahlian SMKN 1 Dukuhturi</h2>
+        <p>SMK Negeri 1 Dukuhturi memiliki enam jurusan unggulan yang membekali siswa dengan keterampilan profesional di berbagai bidang industri dan teknologi modern.</p>
+
+        <div class="jurusan-grid">
+          <div class="jurusan-card">
+            <img src="akl.png" alt="Jurusan AKL">
+            <h3>🧾 AKL (Akuntansi dan Keuangan Lembaga)</h3>
+            <p>Jurusan ini mempelajari pencatatan, pengelolaan, dan analisis keuangan lembaga. Siswa belajar akuntansi dasar, perpajakan, aplikasi akuntansi digital, serta etika profesi keuangan.</p>
+          </div>
+
+          <div class="jurusan-card">
+            <img src="mplb.png" alt="Jurusan MPLB">
+            <h3>📠 MPLB (Manajemen Perkantoran dan Layanan Bisnis)</h3>
+            <p>MPLB membekali siswa keterampilan administrasi perkantoran, pelayanan publik, pengarsipan digital, dan komunikasi bisnis profesional berbasis teknologi informasi.</p>
+          </div>
+
+          <div class="jurusan-card">
+            <img src="pm.png" alt="Jurusan PM">
+            <h3>🛍️ PM (Pemasaran)</h3>
+            <p>Jurusan Pemasaran berfokus pada strategi penjualan, digital marketing, pelayanan pelanggan, dan wirausaha. Siswa dilatih berpikir kreatif dan adaptif dalam dunia bisnis modern.</p>
+          </div>
+
+          <div class="jurusan-card">
+            <img src="dkv.png" alt="Jurusan DKV">
+            <h3>🎨 DKV (Desain Komunikasi Visual)</h3>
+            <p>DKV mengajarkan seni desain grafis, animasi, fotografi, serta editing multimedia. Lulusan siap berkarier di bidang industri kreatif dan media digital.</p>
+          </div>
+
+          <div class="jurusan-card">
+            <img src="tjkt.png" alt="Jurusan TJKT">
+            <h3>💻 TJKT (Teknik Jaringan Komputer dan Telekomunikasi)</h3>
+            <p>TJKT (Teknik Jaringan Komputer dan Telekomunikasi) adalah <b>jurusan keren</b> yang penuh tantangan!Nggak heran kalau jurusan ini jadi salah satu yang <b>paling susah dimasuki</b>, karena setiap tahunnya punya rata-rata nilai tertinggi saat seleksi masuk, termasuk di tahun 2025. Di sini, kamu bakal belajar banyak hal seru — mulai dari merakit dan menginstal jaringan komputer, mengonfigurasi server, merawat perangkat jaringan, sampai mengenal teknologi komunikasi data modern yang dipakai di dunia kerja. Cocok banget buat kamu yang suka teknologi, logika, dan tantangan dunia digital masa depan! 🚀</p>
+          </div>
+
+          <div class="jurusan-card">
+            <img src="pplg.png" alt="Jurusan PPLG">
+            <h3>🧩 PPLG (Pengembangan Perangkat Lunak dan Gim)</h3>
+            <p>PPLG fokus pada pengembangan aplikasi, pemrograman web, mobile, dan game. Siswa belajar coding, desain antarmuka, dan pembuatan produk digital inovatif.</p>
+          </div>
+        </div>
+
+        <p class="jurusan-footer">🌟 Keenam jurusan ini menjadi langkah awal menuju masa depan sukses dan berdaya saing global.</p>
+      </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="galeri">
+      <div class="galeri-container">
+        <h2>Galeri Kegiatan SMKN 1 Dukuhturi</h2>
+        <p>Berikut beberapa kegiatan besar yang menjadi bagian penting dari kehidupan sekolah kami:</p>
+
+        <div class="galeri-grid">
+          <div class="galeri-card">
+            <img src="beranda.jpeg" alt="HUT SMK Negeri 1 Dukuhturi">
+            <h3>🎉 HUT SMKN 1 Dukuhturi</h3>
+            <p>Perayaan Hari Ulang Tahun sekolah diramaikan dengan berbagai lomba, pentas seni, bazar, dan apresiasi terhadap siswa berprestasi.</p>
+          </div>
+
+          <div class="galeri-card">
+            <img src="mpls.png" alt="MPLS SMK Negeri 1 Dukuhturi">
+            <h3>👩‍🏫 MPLS (Masa Pengenalan Lingkungan Sekolah)</h3>
+            <p>MPLS adalah kegiatan awal bagi siswa baru untuk mengenal lingkungan sekolah, budaya disiplin, dan nilai-nilai kebersamaan.</p>
+          </div>
+
+          <div class="galeri-card">
+            <img src="maulid.jpg" alt="Maulid Nabi SMK Negeri 1 Dukuhturi">
+            <h3>🕌 Maulid Nabi Muhammad SAW</h3>
+            <p>Kegiatan keagamaan penuh makna yang mempererat keimanan siswa dengan ceramah, sholawat, dan berbagai kegiatan sosial.</p>
+          </div>
+
+          <div class="galeri-card">
+            <img src="parenting.jpg" alt="Parenting SMK Negeri 1 Dukuhturi">
+            <h3>👨‍👩‍👧‍👦 Kegiatan Parenting</h3>
+            <p>Program kolaboratif antara sekolah dan orang tua untuk membangun sinergi dalam mendukung tumbuh kembang serta karakter siswa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- KONTAK -->
+<section id="kontak">
+  <div class="kontak-container">
+    <h2>Hubungi Kami</h2>
+    <div class="kontak-info">
+      <div class="kontak-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Jl. Raya Karang Anyar No.17, Pekauman Kulon, Kec. Dukuhturi, Kabupaten Tegal, Jawa Tengah 52131</span>
+      </div>
+
+      <div class="kontak-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>Telepon: (0283) 351533</span>
+      </div>
+
+      <div class="kontak-item">
+        <i class="fas fa-flag"></i>
+        <span>Provinsi: Jawa Tengah</span>
+      </div>
+
+      <div class="kontak-item">
+        <i class="fas fa-envelope"></i>
+        <span>
+          E-Mail: 
+          <a href="mailto:smkn1dukuhturi@gmail.com" style="color:#007acc; text-decoration:none;">smkn1dukuhturi@gmail.com</a> /
+          <a href="mailto:admin@smknegeri1dukuhturi.sch.id" style="color:#007acc; text-decoration:none;">admin@smknegeri1dukuhturi.sch.id</a>
+        </span>
+      </div>
+    </div>
+
+    <div class="kontak-map">
+      <iframe 
+        src="https://www.google.com/maps?q=SMK%20Negeri%201%20Dukuhturi%20Tegal&output=embed" 
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+  <script>
+    // Efek animasi saat membuka section kontak
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+    const items = entry.target.querySelectorAll('.kontak-item, .kontak-map');
+      items.forEach(item => item.style.animationPlayState = 'running');
+    }
+  });
+}, { threshold: 0.2 });
+
+const kontakSection = document.querySelector('#kontak');
+if (kontakSection) observer.observe(kontakSection);
+
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    const links = document.querySelectorAll('#menu a');
+    const sections = document.querySelectorAll('main section');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+        const target = link.getAttribute('data-section');
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+        window.scrollTo({ top: document.querySelector('main').offsetTop, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
